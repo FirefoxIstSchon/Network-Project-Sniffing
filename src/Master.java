@@ -30,7 +30,7 @@ class Master {
         Master.initialize_connection();
 
         new Thread(Master::listen_for_commands).start();
-        new Thread(Master::listen_for_commands_encrypted).start();
+        new Thread(Master::listen_for_commands_ssl).start();
 
     }
 
@@ -119,7 +119,7 @@ class Master {
     }
 
 
-    static void listen_for_commands_encrypted(){
+    static void listen_for_commands_ssl(){
 
         try {
 
@@ -170,7 +170,7 @@ class Master {
             terminate_connection();
 
         } catch (IOException e) {
-            System.out.println("Master ssl-socket error: " + e.toString());
+            System.out.println("Master ssl_socket error: " + e.toString());
         }
 
     }

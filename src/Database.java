@@ -30,11 +30,11 @@ class Database {
         if (hashMap.get(key) == null){
 
             hashMap.put(key, value);
-            msg = "Put successful: Key " + key + " Value " + value + " added." ;
+            msg = "OK." ;
 
         } else {
 
-            msg = "Put unsuccessful: Key " + key + " already exists.";
+            msg = "Already exists.";
 
         }
 
@@ -48,7 +48,7 @@ class Database {
 
         if (hashMap.get(key) == null){
 
-            msg = "Get unsuccessful: Key " + key + " not found.";
+            msg = "No stored value for " + key + ".";
 
         } else {
 
