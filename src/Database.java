@@ -2,27 +2,27 @@ import java.io.*;
 import java.util.HashMap;
 
 
-public class Database {
+class Database {
 
     static Database database;
-
     static HashMap<String, String> hashMap;
 
 
-    public Database(){
+    Database(){
 
-        hashMap = load_hashmap();
+        hashMap = load_database();
 
     }
 
 
-    public static Database get_instance(){
+    static void prepare_database(){
+
         if (database == null) database = new Database();
-        return database;
+
     }
 
 
-    public static String client_put(String key, String value){
+    static String put(String key, String value){
 
         String msg;
 
@@ -41,7 +41,7 @@ public class Database {
     }
 
 
-    public static String client_get(String key){
+    static String get(String key){
 
         String msg;
 
@@ -59,7 +59,7 @@ public class Database {
     }
 
 
-    public static void save_hashmap(){
+    static void save_database(){
 
         ObjectOutputStream objectOutputStream;
 
@@ -77,7 +77,7 @@ public class Database {
     }
 
 
-    public static HashMap<String, String> load_hashmap(){
+    static HashMap<String, String> load_database(){
 
         ObjectInputStream objectInputStream;
 
