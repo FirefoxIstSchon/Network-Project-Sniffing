@@ -3,26 +3,52 @@
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
-
+import javax.net.ssl.*;
+import java.io.FileInputStream;
+import java.security.KeyStore;
 
 public class Follower {
 
     Socket socket;
+    SSLSocket ssl_socket;
     BufferedReader reader;
     PrintWriter writer;
 
-    static String SERVER_ADDRESS = "172.20.40.159";
-    static int SERVER_PORT = 4444;
-    static Follower follower;
+        static String SERVER_ADDRESS = "172.20.175.20";
+        static int SSL_PORT=4443;
+        static int SERVER_PORT = 4444;
+        static Follower follower;
 
+        private final String KEY_STORE_NAME =  "clientkeystore";
+        private final String KEY_STORE_PASSWORD = "storepass";
 
     public static void main(String[] args){
 
-        // create a follower instance
 
-        follower = new Follower(SERVER_ADDRESS, SERVER_PORT);
+        Scanner sc=new Scanner(System.in);
+        String connection_type="";
+        System.out.println("Do you want an SSL connection or a TCP connection?");
+        connection_type=sc.nextLine();
+        boolean is_valid=false;
 
-        follower.initialize_connection();
+        do{
+            if(connection_type.equals("ssl")){
+                follower = new Follower(SERVER_ADDRESS, SSL_PORT);
+                follower.initialize_ssl_connection();
+                is_valid=true;
+
+            }else if (connection_type.equals("tcp")){
+                follower = new Follower(SERVER_ADDRESS, SERVER_PORT);
+                follower.initialize_connection();
+                is_valid=true;
+            }else{
+                System.out.println("invalid connection type");
+                System.out.println("Do you want an SSL connection or a TCP connection?");
+
+            }
+        }while(!is_valid);
+
+
 
         if (follower.socket == null) {
 
@@ -42,9 +68,50 @@ public class Follower {
 
     }
 
+    public void initialize_ssl_connection()  {
+        boolean is_init = false;
+        do {
+            try {
+
+                SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+                ssl_socket = (SSLSocket) factory.createSocket(SERVER_ADDRESS, SSL_PORT);
+                ssl_socket.startHandshake();
+
+                writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(ssl_socket.getOutputStream())));
+                reader = new BufferedReader(new InputStreamReader(ssl_socket.getInputStream()));
+                is_init = true;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Follower : Creation error.");
+            }
+
+            if (!is_init) {
+
+                try {
+
+                    Thread.sleep(5*1_000);
+
+                } catch (InterruptedException e) {
+
+                    System.out.println("Follower : Suspend error.");
+
+                }
+
+            }
+
+
+
+
+        }while(!is_init);
+    }
+
+
     public Follower(String SERVER_ADDRESS, int SERVER_PORT){
         this.SERVER_ADDRESS=SERVER_ADDRESS;
         this.SERVER_PORT=SERVER_PORT;
+        System.setProperty("javax.net.ssl.trustStore", KEY_STORE_NAME);
+        System.setProperty("javax.net.ssl.trustStorePassword", KEY_STORE_PASSWORD);
 
     }
 
@@ -148,21 +215,26 @@ class Master_Connecter implements Runnable{
 
         String command="";
         String str="";
+
         Scanner sc=new Scanner(System.in);
 
         while (true) {
 
-
+            System.out.println("Write down a command you want to send.");
             command=sc.nextLine();
 
             if(command.equals("exit")) {
+                follower.send_command("connection_terminate");
                 follower.terminate_connection();
+                System.out.flush();
                 break;
             }
 
 
+
             follower.send_command(command);
             str =follower.get_response();
+            System.out.println(str);
             System.out.flush();
 
 
