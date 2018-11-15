@@ -1,7 +1,4 @@
-
-
 import java.io.*;
-import java.util.Map;
 import java.util.HashMap;
 
 
@@ -9,7 +6,7 @@ public class Master {
 
     static Master master;
 
-    static Map<String, String> database;
+    static HashMap<String, String> database;
 
 
     public Master(){
@@ -80,7 +77,7 @@ public class Master {
     }
 
 
-    public static HashMap load_hashmap(){
+    public static HashMap<String, String> load_hashmap(){
 
         ObjectInputStream objectInputStream;
 
@@ -93,10 +90,10 @@ public class Master {
 
         } catch (IOException e) {
             System.out.println("Database file not found: " + e.toString());
-            hashMap = new HashMap<>();
+            hashMap = new HashMap<String, String>();
         } catch (ClassNotFoundException e) {
             System.out.println("Class conversion error: " + e.toString());
-            hashMap = new HashMap<>();
+            hashMap = new HashMap<String, String>();
         }
 
         return hashMap;
