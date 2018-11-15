@@ -18,6 +18,7 @@ class Database {
     static void prepare_database(){
 
         if (database == null) database = new Database();
+        System.out.println("Database prepared.");
 
     }
 

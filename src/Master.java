@@ -49,13 +49,11 @@ class Master {
             PrintWriter writer = new PrintWriter(socket.getOutputStream());
 
 
-            String cmd = "";
-            String response = "";
+            String cmd = reader.readLine(), response = "";
 
 
             while(!cmd.equals("connection_terminate")){
 
-                cmd = reader.readLine();
                 System.out.println("Master received cmd: " + cmd);
 
                 String[] cmd_args = cmd.split(" ");
@@ -76,6 +74,8 @@ class Master {
 
                 writer.println(response);
                 writer.flush();
+
+                cmd = reader.readLine();
 
             }
 
