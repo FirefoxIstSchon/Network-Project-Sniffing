@@ -14,7 +14,7 @@ public class Follower {
     BufferedReader reader;
     PrintWriter writer;
 
-        static String SERVER_ADDRESS = "172.20.42.126";
+        static String SERVER_ADDRESS = "localhost";
         static int SSL_PORT=4443;
         static int SERVER_PORT = 4444;
         static Follower follower;
@@ -27,8 +27,8 @@ public class Follower {
 
         Scanner sc=new Scanner(System.in);
         String connection_type="";
-        System.out.println("Do you want an SSL connection or a TCP connection?");
-        connection_type=sc.nextLine();
+        System.out.println("Enter TCP/SSL: ");
+        connection_type=sc.nextLine().toLowerCase();
         boolean is_valid=false;
 
         do{

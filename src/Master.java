@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Scanner;
 
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -29,9 +30,12 @@ class Master {
         Database.prepare_database();
         Master.initialize_connection();
 
-        new Thread(Master::listen_for_commands).start();
-        new Thread(Master::listen_for_commands_ssl).start();
+        System.out.println("Enter TCP/SSL: ");
+        Scanner sc = new Scanner(System.in);
 
+        if (sc.nextLine().toLowerCase().equals("tcp"))
+            new Thread(Master::listen_for_commands).start();
+        else new Thread(Master::listen_for_commands_ssl).start();
     }
 
 
