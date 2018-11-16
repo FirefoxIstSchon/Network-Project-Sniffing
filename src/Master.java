@@ -33,9 +33,21 @@ class Master {
         System.out.println("Enter TCP/SSL: ");
         Scanner sc = new Scanner(System.in);
 
-        if (sc.nextLine().toLowerCase().equals("tcp"))
-            new Thread(Master::listen_for_commands).start();
-        else new Thread(Master::listen_for_commands_ssl).start();
+        while (true) {
+            if (sc.nextLine().toLowerCase().startsWith("t"))
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        listen_for_commands(this);
+                    }
+                }).start();
+            else new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    listen_for_commands_ssl(this);
+                }
+            }).start();
+        }
     }
 
 
@@ -67,11 +79,15 @@ class Master {
     }
 
 
-    static void listen_for_commands(){
+    static void listen_for_commands(Runnable r){
 
         try {
 
             socket = serverSocket.accept();
+            while (socket == null) Thread.sleep(300);
+
+            System.out.println("Follower Joined on tcp.");
+            new Thread(r).start();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -119,15 +135,21 @@ class Master {
 
         } catch (IOException e) {
             System.out.println("Master socket error: " + e.toString());
+        } catch (InterruptedException e) {
+            System.out.println("Master thread sleep error: " + e.toString());
         }
     }
 
 
-    static void listen_for_commands_ssl(){
+    static void listen_for_commands_ssl(Runnable r){
 
         try {
 
             sslSocket = (SSLSocket) sslServerSocket.accept();
+            while (sslSocket == null) Thread.sleep(300);
+
+            System.out.println("Follower Joined on ssl.");
+            new Thread(r).start();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(sslSocket.getInputStream()));
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(sslSocket.getOutputStream()));
@@ -175,6 +197,8 @@ class Master {
 
         } catch (IOException e) {
             System.out.println("Master ssl_socket error: " + e.toString());
+        } catch (InterruptedException e) {
+            System.out.println("Master thread sleep error: " + e.toString());
         }
 
     }
