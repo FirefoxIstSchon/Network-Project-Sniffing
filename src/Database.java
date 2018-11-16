@@ -34,7 +34,8 @@ class Database {
 
         } else {
 
-            msg = "Already exists.";
+            hashMap.replace(key, value);
+            msg = "OK." ;
 
         }
 
