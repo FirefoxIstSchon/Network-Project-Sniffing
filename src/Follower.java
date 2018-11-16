@@ -50,7 +50,7 @@ public class Follower {
 
 
 
-        if (follower.socket == null) {
+        if (follower.socket == null && follower.ssl_socket == null) {
 
             System.out.println("Follower : connectivity is not established.");
 
