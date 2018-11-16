@@ -74,7 +74,7 @@ class Master {
             socket = serverSocket.accept();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
             String cmd = reader.readLine(), response = "";
 
@@ -99,7 +99,7 @@ class Master {
 
                 }
 
-                writer.write(response);
+                writer.println(response);
                 writer.flush();
 
                 cmd = reader.readLine();
@@ -130,7 +130,7 @@ class Master {
             sslSocket = (SSLSocket) sslServerSocket.accept();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(sslSocket.getInputStream()));
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(sslSocket.getOutputStream()));
+            PrintWriter writer = new PrintWriter(new OutputStreamWriter(sslSocket.getOutputStream()));
 
             String cmd = reader.readLine(), response = "";
 
@@ -155,7 +155,7 @@ class Master {
 
                 }
 
-                writer.write(response);
+                writer.println(response);
                 writer.flush();
 
                 cmd = reader.readLine();
