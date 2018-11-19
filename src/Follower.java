@@ -38,7 +38,6 @@ public class Follower {
 
 
         String cmd, resp;
-        String key = ""; String value = "";
 
         while (true) {
 
@@ -46,11 +45,6 @@ public class Follower {
             cmd = sc.nextLine();
 
             if (cmd.equals("exit")) break;
-
-            if (cmd.contains("submit")){
-                args = cmd.split(" ");
-                key = args[0]; value = args[1];
-            }
 
 
             do {
@@ -61,8 +55,8 @@ public class Follower {
             } while (resp.equals(""));
 
 
-            if (resp.equals("OK"))
-                System.out.println("Successfully submitted <" + key + ", " + value + "> to server at IP address of <" + SERVER_ADDRESS + ">");
+            if (resp.equals("OK") && cmd.contains("submit"))
+                System.out.println("Successfully submitted <" + cmd.split(" ")[0] + ", " + cmd.split(" ")[1] + "> to server at IP address of <" + SERVER_ADDRESS + ">");
             else System.out.println(resp);
         }
 
