@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Sniffer {
@@ -20,19 +21,18 @@ public class Sniffer {
 
         System.out.println(input);
 
-
         hexData = eraseSpaces(input);
         System.out.println(hexData);
 
 
         findIP(hexData);
-        findPort(hexData);
+        //findPort(hexData);
 
     }
 
     public static void findIP(String hexData){
 
-        String sourceIP =hexData.substring(54,62);
+        String sourceIP =hexData.substring(52,60);
         System.out.println("Source IP: ");
         String hex="";
         int len =sourceIP.length();
@@ -55,12 +55,25 @@ public class Sniffer {
 
     public static String eraseSpaces(String s){
 
-        String[] temp = s.split("\n");
-        String[] line;
+        String[] temp = s.split("  ");
+        String[] raw ;
+        String hex="";
+        for (int i=0; i<temp.length; i++)
+        {
+            raw=temp[i].split(" ");
+
+            for(int k=0; k<raw.length; k++)
+            {
+                if (raw[k].length()!=4)
+                {
+                    hex=hex+raw[k];
+                }
+
+            }
+
+        }
 
 
-
-
-        return "";
+        return hex;
     }
 }
