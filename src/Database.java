@@ -1,6 +1,4 @@
 import java.io.*;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.HashMap;
 
 
@@ -101,25 +99,6 @@ class Database {
         }
 
         return hashMap;
-    }
-
-
-    static InetAddress[] get_localhost(){
-
-        try {
-
-            InetAddress[] localhost = InetAddress.getAllByName("host.name");
-
-            for (InetAddress host : localhost) {
-                System.out.println("\n" + host.getHostAddress());
-            }
-
-            return localhost;
-
-        } catch (UnknownHostException e) {
-            System.out.println("Error getting local address.");
-            return null;
-        }
     }
 
 }

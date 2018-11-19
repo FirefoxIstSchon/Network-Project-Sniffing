@@ -123,6 +123,8 @@ class Master {
 
             }
 
+            System.out.println("Follower Exited from tcp.");
+
             try {
 
                 reader.close();
@@ -131,8 +133,6 @@ class Master {
             } catch (Exception e) {
                 System.out.println("Master reader/writer termination error :" + e.toString());
             }
-
-            terminate_connection();
 
         } catch (IOException e) {
             System.out.println("Master socket error: " + e.toString());
@@ -185,6 +185,8 @@ class Master {
 
             }
 
+            System.out.println("Follower Exited from ssl.");
+
             try {
 
                 reader.close();
@@ -193,8 +195,6 @@ class Master {
             } catch (Exception e) {
                 System.out.println("Master reader/writer termination error :" + e.toString());
             }
-
-            terminate_connection();
 
         } catch (IOException e) {
             System.out.println("Master ssl_socket error: " + e.toString());

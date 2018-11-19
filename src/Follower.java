@@ -62,6 +62,8 @@ public class Follower {
 
 
         Follower.terminate_connection();
+
+        System.out.println("Aklin hayalin durucak.");
     }
 
 
@@ -189,6 +191,7 @@ public class Follower {
         try {
 
             if (socket!= null) {socket.close();}
+            if (ssl_socket != null) {ssl_socket.close();}
             if (reader != null) {reader.close();}
             if (writer != null) {writer.close();}
 
