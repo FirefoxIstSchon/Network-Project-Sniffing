@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Sniffer {
@@ -25,29 +24,46 @@ public class Sniffer {
         System.out.println(hexData);
 
 
-        //findIP(hexData);
-        findPort(hexData);
+        showIP(hexData);
+        showPort(hexData);
 
     }
 
-    public static void findIP(String hexData){
+    public static void showIP(String hexData){
 
-        String sourceIP =hexData.substring(52,60);
+        String sourceIP = hexData.substring(52,60);
+        String destIP = hexData.substring(61,69);
+
+
         System.out.println("Source IP: ");
-        String hex="";
-        int len =sourceIP.length();
-        for(int i =0; i< len; i++)
+
+        for(int i = 0; i < sourceIP.length(); i++)
         {
-            hex=hex+sourceIP.charAt(i);
-            System.out.print(Integer.parseInt(hex,16));
-            if(i!=len){
-                System.out.print(".");
+
+            if (i % 2 == 0) {
+                System.out.print(Integer.parseInt(sourceIP.substring(i, i + 2), 16));
+                if (i != sourceIP.length()-2) System.out.print('.');
             }
+
+        }
+
+
+        System.out.println("Destination IP: ");
+
+        for(int i =0; i < destIP.length(); i++)
+        {
+
+            if (i % 2 == 0) {
+                System.out.print(Integer.parseInt(destIP.substring(i, i + 2), 16));
+                if (i != destIP.length()-2) System.out.print('.');
+            }
+
         }
 
     }
 
-    public static void findPort(String hexData) {
+    public static void showPort(String hexData) {
+
         String sourcePort =hexData.substring(68,72);
         System.out.println("Source Port: ");
         System.out.print(Integer.parseInt(sourcePort,16));
@@ -55,8 +71,6 @@ public class Sniffer {
         String destinationPort =hexData.substring(72,76);
         System.out.println("Destination Port: ");
         System.out.print(Integer.parseInt(destinationPort,16));
-
-
 
     }
 
