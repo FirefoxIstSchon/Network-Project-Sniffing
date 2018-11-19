@@ -14,7 +14,7 @@ public class Follower {
     static BufferedReader reader;
     static PrintWriter writer;
 
-    static String SERVER_ADDRESS = "localhost"; // "192.168.43.177";
+    static String SERVER_ADDRESS = "192.168.43.187"; // "192.168.43.177";
 
     static int PORT = 4444;
     static int SSL_PORT = 4443;
