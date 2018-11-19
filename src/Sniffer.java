@@ -18,11 +18,8 @@ public class Sniffer {
             input += " "+line ;
         }
 
-        System.out.println(input);
 
         hexData = eraseSpaces(input);
-        System.out.println(hexData);
-
 
         showIP(hexData);
         showPort(hexData);
@@ -46,6 +43,7 @@ public class Sniffer {
             }
 
         }
+        System.out.println();
 
 
         System.out.println("Destination IP: ");
@@ -59,6 +57,7 @@ public class Sniffer {
             }
 
         }
+        System.out.println();
 
     }
 
@@ -66,11 +65,11 @@ public class Sniffer {
 
         String sourcePort =hexData.substring(68,72);
         System.out.println("Source Port: ");
-        System.out.print(Integer.parseInt(sourcePort,16));
+        System.out.println(Integer.parseInt(sourcePort,16));
 
         String destinationPort =hexData.substring(72,76);
         System.out.println("Destination Port: ");
-        System.out.print(Integer.parseInt(destinationPort,16));
+        System.out.println(Integer.parseInt(destinationPort,16));
 
     }
 
