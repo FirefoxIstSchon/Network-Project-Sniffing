@@ -139,6 +139,9 @@ class Master {
         } catch (InterruptedException e) {
             System.out.println("Master thread sleep error: " + e.toString());
         }
+
+
+        save_database();
     }
 
 
@@ -202,21 +205,14 @@ class Master {
             System.out.println("Master thread sleep error: " + e.toString());
         }
 
+
+        save_database();
     }
 
 
-    static void terminate_connection(){
+    static void save_database(){
 
-        try {
-
-            if (serverSocket != null) serverSocket.close();
-            if (sslServerSocket != null) sslServerSocket.close();
-
-            Database.save_database();
-
-        } catch (IOException e) {
-            System.out.println("Master socket termination error: " + e.toString());
-        }
+        Database.save_database();
     }
 
 }

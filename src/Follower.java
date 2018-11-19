@@ -63,7 +63,6 @@ public class Follower {
 
         Follower.terminate_connection();
 
-        System.out.println("Aklin hayalin durucak.");
     }
 
 
@@ -168,10 +167,11 @@ public class Follower {
         });
 
         try {
+
             Thread.sleep(2_000);
+            executor.shutdownNow();
 
             if (response[0].equals("")) {
-                executor.shutdownNow();
 
                 System.out.println("Follower : Re-sending message.");
             }
