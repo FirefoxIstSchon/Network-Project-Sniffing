@@ -25,8 +25,8 @@ public class Sniffer {
         System.out.println(hexData);
 
 
-        findIP(hexData);
-        //findPort(hexData);
+        //findIP(hexData);
+        findPort(hexData);
 
     }
 
@@ -48,6 +48,13 @@ public class Sniffer {
     }
 
     public static void findPort(String hexData) {
+        String sourcePort =hexData.substring(68,72);
+        System.out.println("Source Port: ");
+        System.out.print(Integer.parseInt(sourcePort,16));
+
+        String destinationPort =hexData.substring(72,76);
+        System.out.println("Destination Port: ");
+        System.out.print(Integer.parseInt(destinationPort,16));
 
 
 
