@@ -20,9 +20,9 @@ class Master {
     static SSLServerSocket sslServerSocket;
     static SSLSocket sslSocket;
 
-    static String keystore = "keystore.jks";
-    static String keystore_pass = "storepass";
-    static String key_pass = "keypass";
+    static final String keystore = "keystore.jks";
+    static final String keystore_pass = "storepass";
+    static final String key_pass = "keypass";
 
 
     public static void main(String[] args){

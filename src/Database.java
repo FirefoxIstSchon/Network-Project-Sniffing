@@ -91,7 +91,7 @@ class Database {
             hashMap = (HashMap) objectInputStream.readObject();
 
         } catch (IOException e) {
-            System.out.println("Database file not found: " + e.toString());
+            System.out.println("Database file not found.");
             hashMap = new HashMap<String, String>();
         } catch (ClassNotFoundException e) {
             System.out.println("Class conversion error: " + e.toString());

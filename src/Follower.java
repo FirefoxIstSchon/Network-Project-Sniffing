@@ -1,76 +1,80 @@
-
-
 import java.io.*;
+import java.util.*;
+import java.util.concurrent.*;
+
 import java.net.Socket;
-import java.util.Scanner;
+
 import javax.net.ssl.*;
-import java.io.FileInputStream;
-import java.security.KeyStore;
+
 
 public class Follower {
 
-    Socket socket;
-    SSLSocket ssl_socket;
-    BufferedReader reader;
-    PrintWriter writer;
+    static Socket socket;
+    static SSLSocket ssl_socket;
+    static BufferedReader reader;
+    static PrintWriter writer;
 
-        static String SERVER_ADDRESS = "localhost";
-        static int SSL_PORT=4443;
-        static int SERVER_PORT = 4444;
-        static Follower follower;
+    static String SERVER_ADDRESS = "localhost";
 
-        private final String KEY_STORE_NAME =  "clientkeystore";
-        private final String KEY_STORE_PASSWORD = "storepass";
+    static int PORT = 4444;
+    static int SSL_PORT = 4443;
+
+    static final String KEY_STORE_NAME =  "clientkeystore";
+    static final String KEY_STORE_PASSWORD = "storepass";
+
 
     public static void main(String[] args){
 
+        System.setProperty("javax.net.ssl.trustStore", KEY_STORE_NAME);
+        System.setProperty("javax.net.ssl.trustStorePassword", KEY_STORE_PASSWORD);
 
-        Scanner sc=new Scanner(System.in);
-        String connection_type="";
+
         System.out.println("Enter TCP/SSL: ");
-        connection_type=sc.nextLine().toLowerCase();
-        boolean is_valid=false;
+        Scanner sc = new Scanner(System.in);
 
-        do{
-            if(connection_type.equals("ssl")){
-                follower = new Follower(SERVER_ADDRESS, SSL_PORT);
-                follower.initialize_ssl_connection();
-                is_valid=true;
-
-            }else if (connection_type.equals("tcp")){
-                follower = new Follower(SERVER_ADDRESS, SERVER_PORT);
-                follower.initialize_connection();
-                is_valid=true;
-            }else{
-                System.out.println("invalid connection type");
-                System.out.println("Do you want an SSL connection or a TCP connection?");
-
-            }
-        }while(!is_valid);
+        if (sc.nextLine().toLowerCase().startsWith("s"))
+            initialize_ssl_connection();
+        else initialize_connection();
 
 
+        String cmd, resp;
 
-        if (follower.socket == null && follower.ssl_socket == null) {
+        while (true) {
 
-            System.out.println("Follower : connectivity is not established.");
+            System.out.println("Enter a command: ");
+            cmd = sc.nextLine();
 
-        } else {
+            if (cmd.equals("exit")) break;
 
-            System.out.println("Follower : connectivity is established.");
 
-            // update with master
+            do {
 
-            new Thread(new Master_Connecter(follower, 10)).start();
+                send_command(cmd);
+                resp = get_response();
 
-            // follower.terminate_connection();
+            } while (resp == null);
+
+
+
+
+            System.out.println(resp);
+
+
+
+            System.out.flush();  // todo: remove me?
 
         }
 
+        Follower.terminate_connection();
     }
 
-    public void initialize_ssl_connection()  {
+
+    static void initialize_ssl_connection() {
+
         boolean is_init = false;
+
         do {
+
             try {
 
                 SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
@@ -82,7 +86,6 @@ public class Follower {
                 is_init = true;
 
             } catch (Exception e) {
-                e.printStackTrace();
                 System.out.println("Follower : Creation error.");
             }
 
@@ -93,29 +96,17 @@ public class Follower {
                     Thread.sleep(5*1_000);
 
                 } catch (InterruptedException e) {
-
                     System.out.println("Follower : Suspend error.");
-
                 }
-
             }
 
+        } while(!is_init);
 
-
-
-        }while(!is_init);
+        System.out.println("Follower : ssl_connection is established.");
     }
 
 
-    public Follower(String SERVER_ADDRESS, int SERVER_PORT){
-        this.SERVER_ADDRESS=SERVER_ADDRESS;
-        this.SERVER_PORT=SERVER_PORT;
-        System.setProperty("javax.net.ssl.trustStore", KEY_STORE_NAME);
-        System.setProperty("javax.net.ssl.trustStorePassword", KEY_STORE_PASSWORD);
-
-    }
-
-    public  void initialize_connection(){
+    static void initialize_connection(){
 
         boolean is_init = false;
 
@@ -123,7 +114,7 @@ public class Follower {
 
             try {
 
-                socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
+                socket = new Socket(SERVER_ADDRESS, PORT);
                 reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 writer = new PrintWriter(socket.getOutputStream());
 
@@ -142,17 +133,18 @@ public class Follower {
                     Thread.sleep(5*1_000);
 
                 } catch (InterruptedException e) {
-
                     System.out.println("Follower : Suspend error.");
-
                 }
 
             }
 
         } while(!is_init);
+
+        System.out.println("Follower : connection is established.");
     }
 
-    public void send_command(String cmd) {
+
+    static void send_command(String cmd) {
 
         writer.println(cmd);
         writer.flush();
@@ -160,24 +152,43 @@ public class Follower {
     }
 
 
-    public String get_response() {
+    static String get_response() {
 
-        String response = "";
+        final String[] response = {""};
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+
+            try {
+
+                response[0] = reader.readLine();
+
+            } catch (IOException e) {
+                System.out.println("Follower : Response error.");
+            }
+
+        });
 
         try {
+            Thread.sleep(2_000);
 
-            response = reader.readLine();
+            if (response[0].equals("")) {
+                executor.shutdownNow();
 
-        } catch (IOException e) {
+                System.out.println("Follower : Re-submitting message.");
+            }
 
-            System.out.println("Follower : Response error.");
-
+        } catch (InterruptedException e) {
+            System.out.println("Follower : Thread sleep error.");
         }
 
-        return response;
-
+        return response[0];
     }
-    public void terminate_connection() {
+
+
+    static void terminate_connection() {
+
+        Follower.send_command("connection_terminate");
 
         try {
 
@@ -193,65 +204,24 @@ public class Follower {
 
     }
 
-
 }
 
 
 
 
 
-class Master_Connecter implements Runnable{
+class Connect_to_Master implements Runnable{
 
-    Follower follower;
-    int timeout_ms;
 
-    public Master_Connecter(Follower follower, int timeout) {
-        this.follower = follower;
-        this.timeout_ms = timeout * 1_000;
-    }
+    public Connect_to_Master() { }
 
     @Override
     public void run() {
 
-        String command="";
-        String str="";
 
-        Scanner sc=new Scanner(System.in);
-
-        while (true) {
-
-            System.out.println("Write down a command you want to send.");
-            command=sc.nextLine();
-
-            if(command.equals("exit")) {
-                follower.send_command("connection_terminate");
-                follower.terminate_connection();
-                System.out.flush();
-                break;
-            }
-
-
-
-            follower.send_command(command);
-            str =follower.get_response();
-            System.out.println(str);
-            System.out.flush();
-
-
-
-            }
-
-
-
-            try {
-                Thread.sleep(timeout_ms);
-            } catch (InterruptedException e) {
-                System.out.println("Master_Connector thread interrupted");
-            }
 
         }
 
-    }
-
+}
 
 
