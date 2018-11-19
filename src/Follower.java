@@ -55,8 +55,8 @@ public class Follower {
             } while (resp.equals(""));
 
 
-            if (resp.equals("OK") && cmd.contains("submit"))
-                System.out.println("Successfully submitted <" + cmd.split(" ")[0] + ", " + cmd.split(" ")[1] + "> to server at IP address of <" + SERVER_ADDRESS + ">");
+            if (resp.contains("OK") && cmd.contains("submit"))
+                System.out.println("Successfully submitted <" + cmd.split(" ")[1] + ", " + cmd.split(" ")[2] + "> to server at IP address of <" + SERVER_ADDRESS + ">");
             else System.out.println(resp);
         }
 
