@@ -67,6 +67,7 @@ class Master {
 
             sslServerSocket = (SSLServerSocket) sc.getServerSocketFactory().createServerSocket(server_port_ssl);
 
+
         } catch (IOException e) {
             System.out.println("Master creation error: " + e.toString());
         } catch (NoSuchAlgorithmException e) {

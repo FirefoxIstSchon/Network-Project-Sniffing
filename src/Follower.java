@@ -14,7 +14,7 @@ public class Follower {
     static BufferedReader reader;
     static PrintWriter writer;
 
-    static String SERVER_ADDRESS = "localhost";
+    static String SERVER_ADDRESS = "localhost"; // "192.168.43.177";
 
     static int PORT = 4444;
     static int SSL_PORT = 4443;
@@ -38,6 +38,7 @@ public class Follower {
 
 
         String cmd, resp;
+        String key = ""; String value = "";
 
         while (true) {
 
@@ -46,24 +47,25 @@ public class Follower {
 
             if (cmd.equals("exit")) break;
 
+            if (cmd.contains("submit")){
+                args = cmd.split(" ");
+                key = args[0]; value = args[1];
+            }
+
 
             do {
 
                 send_command(cmd);
                 resp = get_response();
 
-            } while (resp == null);
+            } while (resp.equals(""));
 
 
-
-
-            System.out.println(resp);
-
-
-
-            System.out.flush();  // todo: remove me?
-
+            if (resp.equals("OK"))
+                System.out.println("Successfully submitted <" + key + ", " + value + "> to server at IP address of <" + SERVER_ADDRESS + ">");
+            else System.out.println(resp);
         }
+
 
         Follower.terminate_connection();
     }
@@ -102,7 +104,7 @@ public class Follower {
 
         } while(!is_init);
 
-        System.out.println("Follower : ssl_connection is established.");
+        System.out.println("Follower : ssl_socket created.");
     }
 
 
@@ -140,7 +142,7 @@ public class Follower {
 
         } while(!is_init);
 
-        System.out.println("Follower : connection is established.");
+        System.out.println("Follower : socket is created.");
     }
 
 
@@ -175,7 +177,7 @@ public class Follower {
             if (response[0].equals("")) {
                 executor.shutdownNow();
 
-                System.out.println("Follower : Re-submitting message.");
+                System.out.println("Follower : Re-sending message.");
             }
 
         } catch (InterruptedException e) {
@@ -205,23 +207,3 @@ public class Follower {
     }
 
 }
-
-
-
-
-
-class Connect_to_Master implements Runnable{
-
-
-    public Connect_to_Master() { }
-
-    @Override
-    public void run() {
-
-
-
-        }
-
-}
-
-
