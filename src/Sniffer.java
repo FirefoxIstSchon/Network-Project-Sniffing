@@ -1,3 +1,4 @@
+import javax.xml.bind.DatatypeConverter;
 import java.util.Scanner;
 
 public class Sniffer {
@@ -23,6 +24,7 @@ public class Sniffer {
 
         showIP(hexData);
         showPort(hexData);
+        showData(hexData);
 
     }
 
@@ -72,6 +74,40 @@ public class Sniffer {
         System.out.println(Integer.parseInt(destinationPort,16));
 
     }
+    public static void showPayload (String hexData){
+
+        String data =hexData.substring(108,hexData.length());
+
+
+        StringBuilder str = new StringBuilder();
+
+        for (int i = 0; i < hexData.length(); i+=2) {
+            str.append((char) Integer.parseInt(hexData.substring(i, i + 2), 16));
+        }
+
+        System.out.println(str.toString());
+
+
+
+
+    }
+    public static void showData (String hexData){
+
+        String data =hexData.substring(148,hexData.length());
+
+
+        StringBuilder str = new StringBuilder();
+
+        for (int i = 0; i < hexData.length(); i+=2) {
+            str.append((char) Integer.parseInt(hexData.substring(i, i + 2), 16));
+        }
+
+        System.out.println(str.toString());
+
+
+
+
+    }
 
     public static String eraseSpaces(String s){
 
@@ -96,4 +132,6 @@ public class Sniffer {
 
         return hex;
     }
+
+
 }
