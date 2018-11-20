@@ -1,26 +1,8 @@
 import java.io.*;
 import java.util.HashMap;
 
+import com.mysql.jdbc.Driver;
 import java.sql.*;
-import com.mysql.jdbc.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Properties;
-import java.util.*;
-import java.io.*;
-import java.sql.BatchUpdateException;
-import java.sql.DatabaseMetaData;
-import java.sql.RowIdLifetime;
-import java.sql.SQLWarning;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import org.w3c.dom.Document;
 
 
 public class SQL_Database {
@@ -85,7 +67,11 @@ public class SQL_Database {
 //    }
 
     public static void main(String[] args){
+
         prepare_database();
+
+
+
     }
 
 }
