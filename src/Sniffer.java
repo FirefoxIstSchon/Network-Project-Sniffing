@@ -24,6 +24,7 @@ public class Sniffer {
 
         showIP(hexData);
         showPort(hexData);
+        showPayload(hexData);
         showData(hexData);
 
     }
@@ -81,11 +82,11 @@ public class Sniffer {
 
         StringBuilder str = new StringBuilder();
 
-        for (int i = 0; i < hexData.length(); i+=2) {
-            str.append((char) Integer.parseInt(hexData.substring(i, i + 2), 16));
+        for (int i = 0; i < data.length(); i+=2) {
+            str.append((char) Integer.parseInt(data.substring(i, i + 2), 16));
         }
 
-        System.out.println(str.toString());
+        System.out.println("TCP payload: "+data.length()/2+" bytes.");
 
 
 
@@ -93,13 +94,13 @@ public class Sniffer {
     }
     public static void showData (String hexData){
 
-        String data =hexData.substring(148,hexData.length());
+        String data =hexData.substring(108,hexData.length());
 
 
         StringBuilder str = new StringBuilder();
 
-        for (int i = 0; i < hexData.length(); i+=2) {
-            str.append((char) Integer.parseInt(hexData.substring(i, i + 2), 16));
+        for (int i = 0; i < data.length(); i+=2) {
+            str.append((char) Integer.parseInt(data.substring(i, i + 2), 16));
         }
 
         System.out.println(str.toString());
