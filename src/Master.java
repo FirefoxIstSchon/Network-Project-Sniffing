@@ -70,9 +70,10 @@ class Master {
         try {
 
             serverSocket = new ServerSocket(server_port);
+            System.out.println("Master ServSocket init.");
 
         } catch (IOException e) {
-            System.out.println("Master creation error: " + e.toString());
+            System.out.println("Master ServSocket init error: " + e.toString());
         }
     }
 
@@ -90,9 +91,10 @@ class Master {
             sc.init(kmf.getKeyManagers(), null, null);
 
             sslServerSocket = (SSLServerSocket) sc.getServerSocketFactory().createServerSocket(server_port_ssl);
+            System.out.println("Master SSL_ServSocket init.");
 
         } catch (IOException e) {
-            System.out.println("Master creation error: " + e.toString());
+            System.out.println("Master SSL_ServSocket creation error: " + e.toString());
         } catch (NoSuchAlgorithmException e) {
             System.out.println("Master SSL error: " + e.toString());
         } catch (CertificateException e) {
@@ -139,7 +141,7 @@ class Master {
                         else response = SQL_Database.get(cmd_args[1]);
                         break;
 
-                    default: response = "Your command is invalid.";
+                    default: response = "Your cmd '"+cmd+"' is invalid.";
 
                 }
 
@@ -208,7 +210,7 @@ class Master {
                         else response = SQL_Database.get(cmd_args[1]);
                         break;
 
-                    default: response = "Your command is invalid.";
+                    default: response = "Your cmd '"+cmd+"' is invalid.";
 
                 }
 

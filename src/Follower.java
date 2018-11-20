@@ -14,7 +14,7 @@ public class Follower {
     static BufferedReader reader;
     static PrintWriter writer;
 
-    static String SERVER_ADDRESS = "192.168.43.187"; // "192.168.43.177";
+    static String SERVER_ADDRESS = "localhost"; // "192.168.43.177";
 
     static int PORT = 4444;
     static int SSL_PORT = 4443;
@@ -99,7 +99,7 @@ public class Follower {
 
         } while(!is_init);
 
-        System.out.println("Follower : ssl_socket created.");
+        System.out.println("Follower : SSL_Socket init.");
     }
 
 
@@ -137,7 +137,7 @@ public class Follower {
 
         } while(!is_init);
 
-        System.out.println("Follower : socket is created.");
+        System.out.println("Follower : Socket is init.");
     }
 
 

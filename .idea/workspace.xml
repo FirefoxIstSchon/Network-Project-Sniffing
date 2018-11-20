@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dd1a4850-4a14-4d6f-8a5b-beb696f50993" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sniffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sniffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Network-Sniffing/Follower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Network-Sniffing/Follower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Follower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Follower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Master.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Master.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,23 +70,23 @@
     <session id="1015353229">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4547" />
+          <entry key="java" value="4692" />
           <entry key="txt" value="256" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4547" />
+          <entry key="JAVA" value="4692" />
           <entry key="PLAIN_TEXT" value="256" />
         </counts>
       </usages-collector>
@@ -119,29 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="17" selection-start-column="17" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Master.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2669">
-              <caret line="169" selection-start-line="169" selection-end-line="169" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Follower.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1632">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="750">
+              <caret line="59" column="53" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,17 +133,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SQL_Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="270">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Sniffer.java">
+        <entry file="file://$PROJECT_DIR$/src/Master.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="98" column="14" lean-forward="true" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
+            <state relative-caret-position="2597">
+              <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,10 +152,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+        <entry file="file://$PROJECT_DIR$/src/Follower.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-985">
-              <caret line="172" column="24" lean-forward="true" selection-start-line="172" selection-start-column="24" selection-end-line="172" selection-end-column="24" />
+            <state relative-caret-position="176">
+              <caret line="77" column="51" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Sniffer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
             </state>
           </provider>
         </entry>
@@ -196,6 +189,11 @@
       <find>flush</find>
       <find>Re-submitting</find>
       <find>terminate</find>
+      <find>SSL_So</find>
+      <find>ssl_so</find>
+      <find>created</find>
+      <find>crea</find>
+      <find>cr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -207,12 +205,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/Master_run.java" />
         <option value="$PROJECT_DIR$/src/playgrnd.java" />
-        <option value="$PROJECT_DIR$/src/Master.java" />
-        <option value="$PROJECT_DIR$/src/Follower.java" />
         <option value="$PROJECT_DIR$/src/Database.java" />
         <option value="$PROJECT_DIR$/src/playground.java" />
         <option value="$PROJECT_DIR$/src/SQL_Database.java" />
         <option value="$PROJECT_DIR$/src/Sniffer.java" />
+        <option value="$PROJECT_DIR$/src/Follower.java" />
+        <option value="$PROJECT_DIR$/src/Master.java" />
       </list>
     </option>
   </component>
@@ -228,7 +226,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -245,11 +242,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542726007096" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542734124548" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -259,119 +257,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Follower.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Master.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/SQL_Database.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -385,7 +270,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Sniffer">
+  <component name="RunManager" selected="Application.Follower">
     <configuration name="Follower" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Follower" />
       <module name="Network-Sniffing" />
@@ -430,10 +315,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Sniffer" />
         <item itemvalue="Application.Follower" />
-        <item itemvalue="Application.SQL_Database" />
         <item itemvalue="Application.Master" />
+        <item itemvalue="Application.Sniffer" />
+        <item itemvalue="Application.SQL_Database" />
         <item itemvalue="Application.playgrnd" />
       </list>
     </recent_temporary>
@@ -567,10 +452,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <frame x="48" y="22" width="1392" height="878" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49872774" visible="true" weight="0.15778251" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49872774" visible="true" weight="0.18814814" />
       <window_info id="Structure" order="1" sideWeight="0.50127226" side_tool="true" weight="0.15481481" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -579,14 +463,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32824427" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35533553" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33969465" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.26622662" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32951653" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -632,45 +516,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Master.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="169" selection-start-line="169" selection-end-line="169" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/playground.java" />
     <entry file="file://$PROJECT_DIR$/src/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        <state relative-caret-position="750">
+          <caret line="59" column="53" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SQL_Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Follower.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1632">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Sniffer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
-          <caret line="98" column="14" lean-forward="true" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Follower.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="77" column="51" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Master.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2597">
+          <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
