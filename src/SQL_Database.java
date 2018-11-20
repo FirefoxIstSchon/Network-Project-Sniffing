@@ -1,7 +1,4 @@
-import java.io.*;
-import java.util.HashMap;
-
-import com.mysql.jdbc.Driver;
+// import com.mysql.jdbc.Driver;
 import java.sql.*;
 
 
@@ -28,50 +25,70 @@ public class SQL_Database {
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Connection failed. " + e.toString());
         }
-
     }
 
 
     static String put(String key, String value){
 
-        String return_msg;
+        String msg;
 
         try {
 
             statement = connection.createStatement();
 
+            String is_existing = null;
+            query = "SELECT * FROM userdata WHERE userkey = '"+key+"'";
+            resultSet = statement.executeQuery(query);
 
+            while(resultSet.next()){
 
-            return_msg = "OK.";
+                is_existing = resultSet.getString("uservalue");
+
+            }
+
+            if (is_existing == null) query = "INSERT INTO userdata (`userkey`,`uservalue`) VALUES ('"+key+"','"+value+"')";
+            else query = "REPLACE INTO userdata (`userkey`,`uservalue`) VALUES ('"+key+"','"+value+"')";
+
+            statement.executeUpdate(query);
+            msg = "OK.";
+
 
         } catch (SQLException e) {
             System.out.println("Database SQL error: " + e.toString());
-            return_msg = "Not OK.";
+            msg = "Not OK.";
         }
 
-
-        return return_msg;
+        return msg;
     }
 
 
-//    static String get(String key){
-//
-//        String msg;
-//
-//
-//
-//
-//
-//
-//        return msg;
-//    }
+    static String get(String key){
 
-    public static void main(String[] args){
+        String msg;
 
-        prepare_database();
+        try {
 
+            statement = connection.createStatement();
 
+            String value = null;
+            query = "SELECT * FROM userdata WHERE userkey = '"+key+"'";
+            resultSet = statement.executeQuery(query);
 
+            while(resultSet.next()){
+
+                value = resultSet.getString("uservalue");
+
+            }
+
+            if (value == null) msg = "No stored value for " + key + ".";
+            else msg = value;
+
+        } catch (SQLException e) {
+            System.out.println("Database SQL error: " + e.toString());
+            msg = "Not OK.";
+        }
+
+        return msg;
     }
 
 }
