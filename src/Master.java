@@ -42,23 +42,23 @@ class Master {
 
         System.out.println("Enter TCP/SSL: ");
 
-        if (sc.nextLine().toLowerCase().startsWith("t")) {
+        if (sc.nextLine().toLowerCase().startsWith("s")) {
+            initialize_connection_ssl();
+            new Thread(new Runnable() {
+                @Override
+
+                public void run() {
+                    listen_for_commands_ssl(this);
+                }
+            }).start();
+        }
+        else {
             initialize_connection();
             new Thread(new Runnable() {
                 @Override
 
                 public void run() {
                     listen_for_commands(this);
-                }
-            }).start();
-        }
-        else {
-            initialize_connection_sql();
-            new Thread(new Runnable() {
-                @Override
-
-                public void run() {
-                    listen_for_commands_ssl(this);
                 }
             }).start();
         }
@@ -70,15 +70,14 @@ class Master {
         try {
 
             serverSocket = new ServerSocket(server_port);
-            System.out.println("Master ServSocket init.");
 
         } catch (IOException e) {
-            System.out.println("Master ServSocket init error: " + e.toString());
+            System.out.println("Master creation error: " + e.toString());
         }
     }
 
 
-    static void initialize_connection_sql(){
+    static void initialize_connection_ssl(){
 
         try {
 
@@ -91,10 +90,9 @@ class Master {
             sc.init(kmf.getKeyManagers(), null, null);
 
             sslServerSocket = (SSLServerSocket) sc.getServerSocketFactory().createServerSocket(server_port_ssl);
-            System.out.println("Master SSL_ServSocket init.");
 
         } catch (IOException e) {
-            System.out.println("Master SSL_ServSocket creation error: " + e.toString());
+            System.out.println("Master creation error: " + e.toString());
         } catch (NoSuchAlgorithmException e) {
             System.out.println("Master SSL error: " + e.toString());
         } catch (CertificateException e) {
@@ -121,7 +119,7 @@ class Master {
             String cmd = reader.readLine(), response = "";
 
 
-            while(!cmd.equals("connection_terminate")){
+            while(!(cmd == null || cmd.equals("connection_terminate"))){
 
                 System.out.println("Master received cmd: " + cmd);
 
@@ -141,7 +139,7 @@ class Master {
                         else response = SQL_Database.get(cmd_args[1]);
                         break;
 
-                    default: response = "Your cmd '"+cmd+"' is invalid.";
+                    default: response = "Your command '"+cmd+"' is invalid.";
 
                 }
 
@@ -210,7 +208,7 @@ class Master {
                         else response = SQL_Database.get(cmd_args[1]);
                         break;
 
-                    default: response = "Your cmd '"+cmd+"' is invalid.";
+                    default: response = "Your command '"+cmd+"' is invalid.";
 
                 }
 

@@ -99,7 +99,7 @@ public class Follower {
 
         } while(!is_init);
 
-        System.out.println("Follower : SSL_Socket init.");
+        System.out.println("Follower : ssl_socket created.");
     }
 
 
@@ -137,7 +137,7 @@ public class Follower {
 
         } while(!is_init);
 
-        System.out.println("Follower : Socket is init.");
+        System.out.println("Follower : socket is created.");
     }
 
 
