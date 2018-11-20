@@ -6,6 +6,14 @@ public class Sniffer {
     static String hexData = "";
 
     public static void main(String[] args){
+        boolean isSsl=false;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Do you want give SSL or TCP hexdumb?");
+        String in=sc.nextLine();
+        if (in.contains("ssl")){
+            isSsl=true;
+        }
+
         System.out.println("Give hexadecimal input.");
         String input = "";
         Scanner keyboard = new Scanner(System.in);
@@ -24,8 +32,8 @@ public class Sniffer {
 
         showIP(hexData);
         showPort(hexData);
-        showPayload(hexData);
-        showData(hexData);
+        showPayload(hexData, isSsl);
+        showData(hexData, isSsl);
 
     }
 
@@ -75,19 +83,24 @@ public class Sniffer {
         System.out.println(Integer.parseInt(destinationPort,16));
 
     }
-    public static void showPayload (String hexData){
-
-        String data =hexData.substring(108,hexData.length());
-
+    public static void showPayload (String hexData,boolean isSsl){
+        String data="";
+        data =hexData.substring(108,hexData.length());
         System.out.println("TCP payload: "+data.length()/2+" bytes.");
 
 
 
 
     }
-    public static void showData (String hexData){
+    public static void showData (String hexData,boolean isSsl){
+        String data="";
+        if (isSsl){
+            data =hexData.substring(118,hexData.length());
+        }else{
+            data =hexData.substring(108,hexData.length());
+        }
 
-        String data =hexData.substring(108,hexData.length());
+
         StringBuilder str = new StringBuilder();
 
 
