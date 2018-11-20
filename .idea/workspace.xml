@@ -5,6 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Network-Sniffing/Master.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Network-Sniffing/Master.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Follower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Follower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Master.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Master.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQL_Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL_Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sniffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sniffer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,14 +107,14 @@
     <session id="-1789302989">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="302" />
-          <entry key="txt" value="24" />
+          <entry key="java" value="2041" />
+          <entry key="txt" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="302" />
-          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="JAVA" value="2041" />
+          <entry key="PLAIN_TEXT" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -139,8 +143,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Master.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="169" selection-start-line="169" selection-end-line="169" />
+            <state relative-caret-position="-822">
+              <caret line="178" column="46" selection-start-line="178" selection-start-column="46" selection-end-line="178" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1183#1184#0" expanded="true" />
+                <element signature="e#1252#1253#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Follower.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1145">
+              <caret line="115" column="38" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -149,22 +167,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Follower.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SQL_Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="147">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -172,8 +178,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Sniffer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="80" column="52" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
+            <state relative-caret-position="-176">
+              <caret line="123" column="46" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,8 +190,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-985">
-              <caret line="172" column="24" selection-start-line="172" selection-start-column="24" selection-end-line="172" selection-end-column="24" />
+            <state relative-caret-position="-696">
+              <caret line="189" column="24" selection-start-line="189" selection-start-column="24" selection-end-line="189" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -224,11 +230,11 @@
         <option value="$PROJECT_DIR$/src/Master_run.java" />
         <option value="$PROJECT_DIR$/src/playgrnd.java" />
         <option value="$PROJECT_DIR$/src/playground.java" />
-        <option value="$PROJECT_DIR$/src/Sniffer.java" />
         <option value="$PROJECT_DIR$/src/Database.java" />
-        <option value="$PROJECT_DIR$/src/SQL_Database.java" />
         <option value="$PROJECT_DIR$/src/Follower.java" />
         <option value="$PROJECT_DIR$/src/Master.java" />
+        <option value="$PROJECT_DIR$/src/Sniffer.java" />
+        <option value="$PROJECT_DIR$/src/SQL_Database.java" />
       </list>
     </option>
   </component>
@@ -265,7 +271,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542738537601" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542739758761" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -333,9 +339,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Sniffer" />
         <item itemvalue="Application.Follower" />
         <item itemvalue="Application.Master" />
+        <item itemvalue="Application.Sniffer" />
         <item itemvalue="Application.SQL_Database" />
         <item itemvalue="Application.playgrnd" />
       </list>
@@ -480,7 +486,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49872774" visible="true" weight="0.15778251" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49872774" visible="true" weight="0.15778251" />
       <window_info id="Structure" order="1" sideWeight="0.50127226" side_tool="true" weight="0.15481481" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -489,13 +495,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32824427" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35533553" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.35533553" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32951653" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2659033" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49946696" weight="0.26512653" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053304" side_tool="true" weight="0.35533553" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32951653" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -527,7 +533,8 @@
     <MESSAGE value="sql connecting" />
     <MESSAGE value="tcp payload implemented" />
     <MESSAGE value="final checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="final checks" />
+    <MESSAGE value="javadoc added" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadoc added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Runnable.java" />
@@ -538,8 +545,8 @@
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/net/InetAddress.java" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-985">
-          <caret line="172" column="24" selection-start-line="172" selection-start-column="24" selection-end-line="172" selection-end-column="24" />
+        <state relative-caret-position="-696">
+          <caret line="189" column="24" selection-start-line="189" selection-start-column="24" selection-end-line="189" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -551,17 +558,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SQL_Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Follower.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sniffer.java">
+    <entry file="file://$PROJECT_DIR$/src/Follower.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="80" column="52" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
+        <state relative-caret-position="-1145">
+          <caret line="115" column="38" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -570,24 +573,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Master.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="169" selection-start-line="169" selection-end-line="169" />
+        <state relative-caret-position="-822">
+          <caret line="178" column="46" selection-start-line="178" selection-start-column="46" selection-end-line="178" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1183#1184#0" expanded="true" />
+            <element signature="e#1252#1253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Sniffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="123" column="46" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Follower.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Follower.java">
+    <entry file="file://$PROJECT_DIR$/src/SQL_Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="147">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
         </state>
       </provider>
     </entry>

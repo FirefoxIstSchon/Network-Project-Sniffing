@@ -31,17 +31,19 @@ class Master {
 
         Scanner sc = new Scanner(System.in);
 
-
+        //check for using hashmap or sql
         System.out.println("Enter Hashmap/SQL: ");
         if (sc.nextLine().toLowerCase().startsWith("s")) is_sql = true;
 
-
+        //preparing database for both cases
         if (!is_sql) Database.prepare_database();
         else SQL_Database.prepare_database();
 
 
         System.out.println("Enter TCP/SSL: ");
-
+        //starts listening for command after checking whether
+        //it is an ssl connection or tcp. They have 2 distinct
+        //methods for listening
         if (sc.nextLine().toLowerCase().startsWith("s")) {
             initialize_connection_ssl();
             new Thread(new Runnable() {
@@ -66,6 +68,7 @@ class Master {
 
 
     static void initialize_connection(){
+        //method for initializing tcp connection
 
         try {
 
@@ -78,7 +81,7 @@ class Master {
 
 
     static void initialize_connection_ssl(){
-
+        //method for initializing ssl connection
         try {
 
             SSLContext sc = SSLContext.getInstance("TLS");
@@ -104,7 +107,7 @@ class Master {
 
 
     static void listen_for_commands(Runnable r){
-
+        //method for listening commands in tcp connection
         try {
 
             socket = serverSocket.accept();
@@ -173,7 +176,7 @@ class Master {
 
 
     static void listen_for_commands_ssl(Runnable r){
-
+        //method for listening commands in ssl connection
         try {
 
             sslSocket = (SSLSocket) sslServerSocket.accept();

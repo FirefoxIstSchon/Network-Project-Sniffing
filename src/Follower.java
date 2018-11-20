@@ -32,29 +32,32 @@ public class Follower {
         System.out.println("Enter TCP/SSL: ");
         Scanner sc = new Scanner(System.in);
 
+        //getting user input to determine whether it is an ssl connection
         if (sc.nextLine().toLowerCase().startsWith("s"))
             initialize_ssl_connection();
         else initialize_connection();
 
 
         String cmd, resp;
-
+        //this while loop runs all the time until user writes exit,
+        //or there is connection loss.
         while (true) {
 
             System.out.println("Enter a command: ");
-            cmd = sc.nextLine();
+            cmd = sc.nextLine();   //getting the command from user.
 
             if (cmd.equals("exit")) break;
 
 
             do {
 
-                send_command(cmd);
-                resp = get_response();
+                send_command(cmd); //sending command to the master
+                resp = get_response(); //getting the response from master
 
             } while (resp.equals(""));
 
-
+            //checking whether it is submit message or not since it will change the message
+            //that is going to be printed.
             if (resp.contains("OK") && cmd.contains("submit"))
                 System.out.println("Successfully submitted " + cmd.split(" ")[1] + ", " + cmd.split(" ")[2] + " to server at IP address of " + SERVER_ADDRESS);
             else System.out.println(resp);
@@ -73,11 +76,11 @@ public class Follower {
         do {
 
             try {
-
+                //opening ssl socket
                 SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
                 ssl_socket = (SSLSocket) factory.createSocket(SERVER_ADDRESS, SSL_PORT);
                 ssl_socket.startHandshake();
-
+                //creating reader and writer for this socket.
                 writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(ssl_socket.getOutputStream())));
                 reader = new BufferedReader(new InputStreamReader(ssl_socket.getInputStream()));
                 is_init = true;
@@ -110,7 +113,7 @@ public class Follower {
         do {
 
             try {
-
+                //creating tcp socket.
                 socket = new Socket(SERVER_ADDRESS, PORT);
                 reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 writer = new PrintWriter(socket.getOutputStream());
