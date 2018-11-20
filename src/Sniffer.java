@@ -6,7 +6,7 @@ public class Sniffer {
     static String hexData = "";
 
     public static void main(String[] args){
-
+        System.out.println("Give hexadecimal input.");
         String input = "";
         Scanner keyboard = new Scanner(System.in);
 
@@ -31,7 +31,7 @@ public class Sniffer {
     public static void showIP(String hexData){
 
         String sourceIP = hexData.substring(52,60);
-        String destIP = hexData.substring(61,69);
+        String destIP = hexData.substring(60,68);
 
 
         System.out.println("Source IP: ");
