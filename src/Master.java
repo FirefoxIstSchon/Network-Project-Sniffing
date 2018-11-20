@@ -24,25 +24,39 @@ class Master {
     static final String keystore_pass = "storepass";
     static final String key_pass = "keypass";
 
+    static boolean is_sql = false;
+
 
     public static void main(String[] args){
 
-        Database.prepare_database();
-        Master.initialize_connection();
-
-        System.out.println("Enter TCP/SSL: ");
         Scanner sc = new Scanner(System.in);
 
-        while (true) {
-            if (sc.nextLine().toLowerCase().startsWith("t"))
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        listen_for_commands(this);
-                    }
-                }).start();
-            else new Thread(new Runnable() {
+
+        System.out.println("Enter Hashmap/SQL: ");
+        if (sc.nextLine().toLowerCase().startsWith("s")) is_sql = true;
+
+
+        if (!is_sql) Database.prepare_database();
+        else SQL_Database.prepare_database();
+
+
+        System.out.println("Enter TCP/SSL: ");
+
+        if (sc.nextLine().toLowerCase().startsWith("t")) {
+            initialize_connection();
+            new Thread(new Runnable() {
                 @Override
+
+                public void run() {
+                    listen_for_commands(this);
+                }
+            }).start();
+        }
+        else {
+            initialize_connection_sql();
+            new Thread(new Runnable() {
+                @Override
+
                 public void run() {
                     listen_for_commands_ssl(this);
                 }
@@ -57,6 +71,16 @@ class Master {
 
             serverSocket = new ServerSocket(server_port);
 
+        } catch (IOException e) {
+            System.out.println("Master creation error: " + e.toString());
+        }
+    }
+
+
+    static void initialize_connection_sql(){
+
+        try {
+
             SSLContext sc = SSLContext.getInstance("TLS");
             char ksPass[] = keystore_pass.toCharArray();
             KeyStore ks = KeyStore.getInstance("JKS");
@@ -66,7 +90,6 @@ class Master {
             sc.init(kmf.getKeyManagers(), null, null);
 
             sslServerSocket = (SSLServerSocket) sc.getServerSocketFactory().createServerSocket(server_port_ssl);
-
 
         } catch (IOException e) {
             System.out.println("Master creation error: " + e.toString());
@@ -106,13 +129,17 @@ class Master {
 
                     case "submit":
 
-                        response = Database.put(cmd_args[1], cmd_args[2]);
+                        if (!is_sql) response = Database.put(cmd_args[1], cmd_args[2]);
+                        else response = SQL_Database.put(cmd_args[1], cmd_args[2]);
                         break;
 
                     case "get":
 
-                        response = Database.get(cmd_args[1]);
+                        if (!is_sql) response = Database.get(cmd_args[1]);
+                        else response = SQL_Database.get(cmd_args[1]);
                         break;
+
+                    default: response = "Your command is invalid.";
 
                 }
 
@@ -141,7 +168,7 @@ class Master {
         }
 
 
-        save_database();
+        if (!is_sql) save_database();
     }
 
 
@@ -171,13 +198,17 @@ class Master {
 
                     case "submit":
 
-                        response = Database.put(cmd_args[1], cmd_args[2]);
+                        if (!is_sql) response = Database.put(cmd_args[1], cmd_args[2]);
+                        else response = SQL_Database.put(cmd_args[1], cmd_args[2]);
                         break;
 
                     case "get":
 
-                        response = Database.get(cmd_args[1]);
+                        if (!is_sql) response = Database.get(cmd_args[1]);
+                        else response = SQL_Database.get(cmd_args[1]);
                         break;
+
+                    default: response = "Your command is invalid.";
 
                 }
 
@@ -206,7 +237,7 @@ class Master {
         }
 
 
-        save_database();
+        if (!is_sql) save_database();
     }
 
 

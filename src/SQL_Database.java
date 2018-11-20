@@ -21,9 +21,9 @@ public class SQL_Database {
                     "jdbc:mysql://sql2.freesqldatabase.com:3306/sql2266284",
                     "sql2266284", "pK8!vF7*");
 
-            System.out.println("Connection successful.");
+            System.out.println("Connected to SQL database.");
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Connection failed. " + e.toString());
+            System.out.println("Connection to SQL database failed. " + e.toString());
         }
     }
 

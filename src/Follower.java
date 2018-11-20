@@ -83,7 +83,7 @@ public class Follower {
                 is_init = true;
 
             } catch (Exception e) {
-                System.out.println("Follower : Creation error.");
+                System.out.println("Follower : SSL_Socket connectivity error.");
             }
 
             if (!is_init) {
@@ -93,7 +93,7 @@ public class Follower {
                     Thread.sleep(5*1_000);
 
                 } catch (InterruptedException e) {
-                    System.out.println("Follower : Suspend error.");
+                    System.out.println("Follower : Thread suspend error.");
                 }
             }
 
@@ -119,7 +119,7 @@ public class Follower {
 
             } catch (IOException e) {
 
-                System.out.println("Follower : Creation error.");
+                System.out.println("Follower : Socket connectivity error.");
 
             }
 
@@ -130,7 +130,7 @@ public class Follower {
                     Thread.sleep(5*1_000);
 
                 } catch (InterruptedException e) {
-                    System.out.println("Follower : Suspend error.");
+                    System.out.println("Follower : Thread suspend error.");
                 }
 
             }
